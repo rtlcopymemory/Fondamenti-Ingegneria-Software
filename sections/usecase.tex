@@ -1,0 +1,48 @@
+Esprimono i \textbf{Requisiti funzionali} di un sistema.\\
+Totalmente indipendente dal mondo OO e NON visuale. Implementati dallo Use Case Diagram UML per averne una rappresentazione visuale.
+
+\noindent Gli use case esprimono l’interazione tra le entità che interagiscono con il sistema stesso (chiamate attori)
+
+\noindent Sempre descritti dal punto di vista dell'utente.
+
+\subsection{Scenario}
+Uno scenario è una sequenza ordinata di interazioni tra un sistema e gli attori.\\
+Rappresenta una particolare esecuzione di uno use case (istanza), e rappresenta un singolo cammino dello use case
+
+\subsection{Composto da}
+\begin{itemize}
+    \item \textbf{Attori}: I ruoli assunti dalle entità (persone, sistemi hardware/software, dispositivi) che interagiscono con il sistema.
+    \begin{itemize}
+        \item \textbf{Primari}: chi ha delle mire sul sistema o chi guadagna qualcosa dal sistema.
+        \item \textbf{Secondari}: quelli su cui il sistema ha delle mire o chi produce qualcosa (o offre un servizio) per il sistema
+    \end{itemize}
+    
+    \item \textbf{Use case}: quello che gli attori possono fare con il sistema.
+    \begin{itemize}
+        \item È un insieme di scenari che hanno in comune lo scopo finale dell'utente.
+        \item Uno scenario rappresenta un singolo cammino attraverso lo use case.
+    \end{itemize}
+    
+    \item \textbf{Relazioni}: tra gli attori e gli use case (indica partecipazione!).
+    \item \textbf{Confini del sistema}: un rettangolo disegnato intorno agli use case per indicare i confini del sistema.
+\end{itemize}
+
+\subsection{Descrizione}
+\begin{itemize}
+    \item \textbf{Scenario principale}: normale flusso di eventi.
+    \item \textbf{Scenari secondari}: cosa può succedere di sbagliato/diverso e come gestirlo.
+\end{itemize}
+
+\noindent Il nome va sempre in \textbf{CamelCase}
+
+\noindent Ogni interazione/passo viene definito come "<numero> il <cliente/sistema> <azione>"
+
+\subsection{Gerarchie di attori}
+Gli attori possono avere gerarchie, indicate da frecce le quali puntano verso l'attore dal quale di eredita.
+
+\subsection{Relazioni tra use case}
+\begin{itemize}
+    \item \textbf{Inclusione}: "includere" comportamenti comuni, ad esempio un login viene incluso dagli use case di acquisto. (Freccia da acquisto a login)
+    \item \textbf{Estensione}: Per specificare comportamenti opzionali, ad esempio la conferma del 2FA nel caso l'utente lo abbia attivato. (Freccia da 2FA a Login)
+    \item \textbf{Generalizzazione}: Per generalizzare uno use case, ad esempio Pay generalizzato in Pay by credit e Pay by cash.
+\end{itemize}

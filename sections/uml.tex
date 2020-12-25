@@ -1,0 +1,132 @@
+Modi di utilizzo:
+\begin{itemize}
+    \item \textbf{Abbozzo/Sketch}: aiutare la comunicazione e la discussione
+    \item \textbf{Blueprint}: fornire un modello completo/dettagliato da implementare
+    \item \textbf{Linguaggio di programmazione}: fornire un “modello eseguibile”
+\end{itemize}
+
+\noindent \textbf{Modello di dominio}: \`E una rappresentazione visuale di classi concettuali o di oggetti del mondo reale di un dominio
+
+\vspace{2mm}
+\noindent In UML, un sistema viene descritto utilizzando diverse viste:\\
+\textbf{Vista}: particolare aspetto di un Sistema dal punto di vista di uno specifico ruolo\\
+Ogni Diagramma UML descrive una sola vista. Chiameremo Modello un insieme di diagrammi che descrivono aspetti diversi dello stesso sistema.
+
+\vspace{2mm}
+UML può essere usato in qualsiasi delle seguenti fasi: Requirements, Architecture, Design.
+\begin{itemize}
+    \item Requirements
+    \begin{itemize}
+        \item UML class diagrams
+        \item UML use case diagrams
+        \item UML activity diagram
+        \item UML sequence diagrams
+    \end{itemize}
+    
+    \item Architecture
+    \begin{itemize}
+        \item UML components diagram
+        \item UML deployment diagram
+    \end{itemize}
+    
+    \item Design
+    \begin{itemize}
+        \item UML class diagrams
+        \item UML sequence diagrams
+        \item UML communication diagrams
+        \item UML object diagrams
+        \item UML package diagrams
+        \item UML state machine diagrams
+        \item UML activity diagrams
+    \end{itemize}
+\end{itemize}
+
+\subsection{Class Diagram}
+Utilizzabile in 2 prospettive:
+\begin{itemize}
+    \item \textbf{Prospettiva concettuale}: Descriviamo gli elementi del “pezzo di mondo” che ci interessa modellare. Classe UML = concetto proprio del dominio
+    \item \textbf{Prospettiva software}: Descriviamo il design di un software, ovvero i moduli software che costituiranno l’implementazione vera e propria del sistema. Classe UML = classe in un linguaggio OO
+\end{itemize}
+
+\subsubsection{Linguaggio OCL per Vincoli}
+\textbf{Context}: $<$Classe$>$\\
+\textbf{Inv$|$Pre$|$Post}: $<$Condizione$>$
+
+\vspace{4mm}
+\noindent Le condizioni possono anche contenere:
+\begin{itemize}
+    \item \textbf{@time}: Esempio. self.età = self.età@pre + 1
+    \item \textbf{forAll()}: Esempio. self.parco$\rightarrow$forAll(v$|$v.colore=nero)
+\end{itemize}
+
+\subsection{Sequence Diagram}
+I diagrammi di interazione descrivono la collaborazione di un gruppo di oggetti. Ovvero lo scambio di messaggi.
+
+\vspace{2mm}
+\noindent \textbf{Dove e come utilizzarli}:
+\begin{itemize}
+    \item Sono un ottimo mezzo per visualizzare l’interazione tra oggetti, non la logica di controllo.
+    \item Stabilire con precisione quali sono gli eventi di input (operazioni di input e parametri) e di output (dati di ritorno) del sistema
+\end{itemize}
+
+\break
+\subsection{State Machine Diagram}
+Le state machine vengono usate per descrivere il comportamento di una entità come variazione del suo stato interno quando è sottoposta a sollecitazioni dal mondo esterno.
+
+\vspace{2mm}
+\noindent \textbf{Dove e come usarle}
+\begin{itemize}
+    \item Usare i diagrammi degli stati solo per le entità che hanno una logica interna interessante e complessa
+    \begin{itemize}
+        \item Oggetti e sistemi di controllo
+        \item Distributori automatici
+        \item Sistemi di gestione documentale
+        \item GUI
+    \end{itemize}
+\end{itemize}
+
+\subsection{Activity Diagram}
+Descrivono come viene svolta un’attività relativa ad una qualsiasi entità. Usati in contesti diversi, fasi diverse dello sviluppo e per scopi diversi.
+
+\vspace{2mm}
+\noindent \textbf{Dove e come usarle}
+\begin{itemize}
+    \item Modellare processi di business e workflow (analisi)
+    \item Modellare il flusso di un caso d’uso (analisi)
+    \item Modellare un’operazione di una classe (progettazione)
+    \item Modellare un algoritmo (progettazione)
+    \item Come linguaggio di programmazione (codifica)
+\end{itemize}
+
+\subsection{Component Diagram}
+I component Diagrams sono molto diversi dagli altri Diagrams. Mentre gli altri rappresentano il sistema, i Component Diagrams sono usati per descrivere il funzionamento e il comportamento di varie componenti di un sistema.
+
+\vspace{2mm}
+\noindent \textbf{Dove e come usarli}
+\begin{itemize}
+    \item Per rappresentare componenti di un sistema a runtime.
+    \item Aiutano durante il testing
+    \item Visualizza la connessione fra varie componenti
+\end{itemize}
+
+\break
+\subsection{Deployment Diagram}
+Mostra la relazione tra hardware e software in un sistema e ha un forte link con il Component diagram.\\
+\`E importante specificare gli \textbf{artefatti}: Sono entità concrete del mondo reale che vengono scambiante fra le varie componenti. (Es. zip, dati, codice sorgente, files in generale).
+
+\vspace{2mm}
+\noindent \textbf{Dove e come usarli}
+\begin{itemize}
+    \item Modellare la topologia di una rete di sistemi
+    \item Modellare un sistema distribuito
+    \item Forward e Reverse Engineering
+\end{itemize}
+
+\subsection{Package Diagram}
+Un package (in UML) è un costrutto che permette di prendere un numero arbitrario di elementi UML (classi, casi d’uso, modelli UML) e raggrupparli assieme.
+
+\vspace{2mm}
+\noindent \textbf{Dove e come usarli}
+\begin{itemize}
+    \item Per semplificare e schematizzare class diagram complessi
+\end{itemize}

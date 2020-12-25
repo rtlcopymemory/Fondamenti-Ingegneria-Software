@@ -1,0 +1,43 @@
+Il refactoring \`e una riorganizzazione, ristrutturazione del codice senza alterarne il comportamento.\\
+Viene eseguito per:
+\begin{itemize}
+    \item Limitare “design decay/erosion”
+    \item Aumentare la leggibilità/comprensibilità del codice
+    \item Semplificare il codice
+    \item “Ripulire” il codice esistente (clean-up code)
+    \item Semplificare la fase di testing
+    \item Semplificare la manutenzione future
+\end{itemize}
+
+\noindent Va applicato spesso, alcune situazioni per applicarlo sono:
+\begin{itemize}
+    \item Si vuole aggiungere una nuova funzionalità al sistema
+    \item Quando si fissa un bug
+    \item Quando viene rilevato un “code smell”
+\end{itemize}
+
+\subsection{Code Smell}
+Un Code smell \`e un indicatore ‘che qualcosa nel codice non va bene..’. Può essere lo stile del codice, un architettura sbagliata, qualcosa che rende il codice meno leggibile oppure qualcosa che crea dei bug "nascosti".\\
+\textbf{Alcuni esempi}:
+\begin{itemize}
+    \item Troppo codice
+    \begin{itemize}
+        \item Long method
+        \item Large class
+        \item Duplicated code (clone)
+        \item Dead code (code that is not executed)
+        \item Long parameter List
+    \end{itemize}
+    
+    \item ‘Non abbastanza’ codice
+    \begin{itemize}
+        \item Classes with little code
+        \item Data class
+        \item Empty catch clauses
+    \end{itemize}
+    
+    \item Al di fuori del codice
+    \begin{itemize}
+        \item Excessive commenting
+    \end{itemize}
+\end{itemize}

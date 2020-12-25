@@ -1,0 +1,46 @@
+\subsection{Astrazione}
+Permette di concentrarsi su un problema ad un determinato livello di astrazione, senza perdersi in dettagli irrilevanti.\\
+Forme di astrazione:
+\begin{itemize}
+    \item Funzionale
+    \item di Dati
+    \item di Controllo
+\end{itemize}
+
+\subsection{Decomposizione}
+Cercare di risolvere un problema in una volta sola è in genere più difficile che risolverlo per parti (cioè scomponendolo)
+
+\subsection{Modularità}
+Il principio di decomposizione consiglia di dividere un problema (software) in tanti piccoli problemi (moduli). Questo principio invece ci dice come dividere un problema (software).\\
+Sostanzialmente massimizzare la coesione e minimizzare l’accoppiamento.
+
+\subsubsection{Coesione}
+Tutti gli elementi del modulo contribuiscono ad un singolo ben definito task.
+
+\subsubsection{Accoppiamento}
+Ogni modulo non deve dipendere da troppi altri moduli, né dipendervi in modo troppo forte.
+\begin{itemize}
+    \item \textbf{Buono}: chiamata di routine/metodo/funzione di altro modulo
+    \item \textbf{Cattivo}: content coupling
+\end{itemize}
+
+\subsection{Information Hiding}
+I moduli dovrebbero essere specificati e progettati in modo tale che le informazioni (algoritmi e dati) risultino nascoste agli altri moduli che non hanno bisogno di tali informazioni
+
+\subsection{Alto Fan-in e basso Fan-out}
+E’ possibile costruire il grafo degli usi (o dipendenze) in cui gli archi rappresentano la relazione dipende da:
+\begin{itemize}
+    \item Fan-in: numero di archi entranti in un modulo
+    \item Fan-out: numero degli archi uscenti da un modulo
+\end{itemize}
+
+\subsection{Generalità}
+\`E la proprietà di design che “migliora” il riuso di un modulo in altri progetti (in futuro).\\
+Si cerca di rendere un modulo il più generale possibile in modo da poterlo usare in più contesti.
+
+\subsection{Semplicità}
+Il design dovrebbe essere il più semplice possibile.
+
+\subsection{indice LCOM}
+$$\text{LCOM = n intersezioni vuote - n intersezioni non vuote}$$
+Insiemi = variabili usate da un metodo

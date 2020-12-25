@@ -1,0 +1,25 @@
+XP è un processo di sviluppo per Software OO ideato per piccoli gruppi (4-20) che cerca di mantenersi agile e flessibile.\\
+Non usa linguaggi di analisi o design (UML), ma dalla raccolta dei requisiti, eseguita con le “User stories”, passa velocemente alla codifica.\\
+Una \textbf{user story} è un sintetico “caso d’uso” che viene scritto in linguaggio naturale su una scheda.\\
+Invece di un rilascio unico XP prevede frequenti rilasci di codice funzionante ogni 1-4 settimane.
+
+\subsection{Design}
+\textbf{Metodo CRC}: Si usano foglietti adesivi su cui vengono scritti il nome della classe, le responsabilità e le collaborazioni con le altre classi.\\
+Per avere sempre ben chiaro il design è importante che il codice sia il più autodocumentato e “chiaro” possibile (meaningful code).
+
+\subsection{Codifica}
+Non si pianifica per il riuso, ma si sviluppa nel modo più semplice possibile.\\
+Tutti i programmatori devono attenersi alle stesse “code conventions”.\\
+Spesso fa uso del Pair Programming.
+
+\subsection{Unit Testing}
+Per ogni classe vanno scritti dei casi di test per verificarne il funzionamento.\\
+I test vanno scritti prima del codice stesso perché aiutano nello sviluppo. (\textbf{TDD})
+
+\subsection{Refactoring}
+Per mantenere il codice semplice e meaningful occorre ‘ristrutturarlo’ spesso: Ogni volta che la classe supera i casi di test si applica il refactoring.\\
+La ristrutturazione continua è possibile perchè si dispone dei casi di test di unità.
+
+\subsection{Acceptance Testing}
+Sono previsti dei test funzionali di accettazione, basati sulle “User stories” e concordati con il cliente. Durante lo sviluppo possono anche non essere tutti passati.\\
+La percentuali di test passati indica il prograsso dello sviluppo.

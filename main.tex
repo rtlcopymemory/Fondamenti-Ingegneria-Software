@@ -1,0 +1,124 @@
+\documentclass[10pt]{article}
+
+\usepackage[italian]{babel}
+\selectlanguage{italian}
+
+\usepackage{scrextend} % indentation
+
+\usepackage{graphicx} % for pics
+\graphicspath{{images/}{../images/}} % source folder for pics
+
+\usepackage{amsmath} % Math
+
+\usepackage{hyperref} % Clickable Table of content
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\usepackage{tabularx} % Tables
+
+\usepackage[margin=1.5in,bottom=1.5in,top=1.5in]{geometry} % changes the margin
+% Fancy header and footer with page number on the right
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyfoot{}
+\rfoot{\thepage}
+
+% Algorithms Pseudo-code
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+% Enviroment called theorem, resetting every section, printing 'Theorem'
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{definition}{Definizione}[section]
+\newtheorem{demonstration}{Dimostrazione}[definition]
+
+\def\code#1{\texttt{#1}}
+
+\usepackage{subfiles} % Best loaded last in the preamble
+
+\title{Fondamenti di Ingegneria del Software\\ \large Riassunto - TL;DR}
+\author{Crippa Federico}
+\date{A.A. 2020/2021}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\newpage
+\section*{Disclaimer}
+Questo documento non \`e un sostituto alle lezioni ma solo un indice per il ripasso. Il contenuto sorvola alcuni aspetti che potrebbero essere utili o interessanti e non include dettagli o spiegazioni grafiche (ad esempio la sintassi di UML).
+
+\vspace{1in}
+\section*{Donations} \label{sec:Donations}
+Questi appunti sono disponibili pubblicamente e gratuitamente presso il mio \underline{\href{https://github.com/WolfenCLI/Database-class-notes}{GitHub}}\\
+Se ti sono state particolarmente utili, considera una donazione! \underline{\href{https://ko-fi.com/wolfencli}{Ko-Fi}}
+
+\vspace{1in}
+\section*{Non Licensing}
+Questo documento \`e disponibile gratuitamente e chiunque \`e libero di contribuire, modificare o vendere copie di questo documento. Non viene applicata nessuna licenza siccome non ho trovato nessuna licenza con un ideale simile a GNU GPL.\\
+Se si volesse contribuire, vedere la sezione sopra.
+
+\newpage
+\section{Modelli di sviluppo Plan-driven}
+\subfile{sections/modelli-plan.tex}
+
+\section{Modelli di sviluppo Agile}
+\subfile{sections/modelli-agile.tex}
+
+\newpage
+\section{Requirements Engineering}
+\subfile{sections/reqeng.tex}
+
+\newpage
+\section{Use case}
+\subfile{sections/usecase.tex}
+
+\section{High Level Design}
+\subfile{sections/design.tex}
+
+\section{Stili Architetturali}
+\subfile{sections/stiliArch.tex}
+
+\section{Stili di controllo}
+\subfile{sections/stiliContr.tex}
+
+\newpage
+\section{Design By Contract}
+\subfile{sections/descon.tex}
+
+\newpage
+\section{Principi di progettazione}
+\subfile{sections/princ.tex}
+
+\section{UML}
+\subfile{sections/uml.tex}
+
+\section{Framework vs Libreria}
+\subfile{sections/framework.tex}
+
+\newpage
+\section{Design Patterns}
+\subfile{sections/designPattern.tex}
+
+\newpage
+\section{Refactoring}
+\subfile{sections/refactor.tex}
+
+\newpage
+\section{Persistenza}
+\subfile{sections/persist.tex}
+
+\section{Software Testing}
+\subfile{sections/testing.tex}
+
+\section{Extreme Programming}
+\subfile{sections/XP.tex}
+
+\end{document}

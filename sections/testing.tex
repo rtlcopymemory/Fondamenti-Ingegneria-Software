@@ -1,0 +1,25 @@
+\`E una procedura sistematica che prevede l’esecuzione di un sistema software (SUT) con l’intento di trovare failure (e poi il fault associato)\\
+Il \textbf{Software testing} rivela i \textbf{failure}, il \textbf{Debugging} li identifica e rimuove.\\
+Non \`e possibile testare esattamente ogni possibile input.
+
+\subsection{Debugging}
+Due fasi:
+\begin{enumerate}
+    \item fault localization/location
+    \item fault removal
+\end{enumerate}
+
+\subsection{Testing}
+Essitono due categorie
+\begin{enumerate}
+    \item White Box (o structural testing): basato su una conoscenze esplicita del SUT e della sua struttura
+    \item Black box (o functional testing): NON basato su una conoscenze esplicita del SUT e della sua struttura
+\end{enumerate}
+
+\noindent Eseguiti in vari fasi con nomi e scopi diversi:
+\begin{itemize}
+    \item Testing di unità (implementazione): Testano le singole unità
+    \item Testing di integrazione (implementazione/integrazione): Testano il sistema come insieme e l'integrazione delle unità fra di loro
+    \item Testing di sistema (integrazione di sistema): Testano che il software soddisfi i requisiti e i bisogni dell'utente
+    \item Testing di regressione (manutenzione): verificano che non ci siano stati side effect dopo il cambiamento di una parte di codice (ad esempio bug fix)
+\end{itemize}

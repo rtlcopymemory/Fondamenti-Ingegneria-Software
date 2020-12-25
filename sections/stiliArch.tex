@@ -1,0 +1,126 @@
+L’architettura di un sistema può conformarsi a uno stile architetturale. Conoscere gli stili architetturali può semplificare il problema di definire l’architettura software
+
+\vspace{2mm}
+
+\noindent \textbf{Elementi di uno stile}
+\begin{itemize}
+    \item \textbf{Tipo di componenti}
+    \item \textbf{tipo di connettori}
+\end{itemize}
+
+\noindent \textbf{Stili}
+\begin{itemize}
+    \item Layered (Stratificato)
+    \item Repository
+    \item Client/server
+    \item Two tier / three tier
+    \item P2P
+    \item Pipe and Filter
+    \item Broadcast Model
+    \item Service Oriented Architecture
+    \item Microservice
+\end{itemize}
+
+\break
+\subsection{Stratificato (Layered)}
+Organizza il sistema in un insieme di livelli ognuno dei quali fornisce un insieme di servizi. Un livello “si appoggia” solo sul livello inferiore (cioè usa solo i servizi del livello inferiore).
+
+\subsubsection{Vantaggi}
+\begin{itemize}
+    \item Se cambia l’interfaccia di un livello, solo il livello superiore ne è influenzato
+    \item Supporta il riuso: differenti implementazioni dello stesso livello possono essere usate in modo intercambiabile
+\end{itemize}
+
+\subsubsection{Svantaggi}
+\begin{itemize}
+    \item Spesso però è artificiale strutturare il sistema in questo modo
+    \item Può risultare inefficiente (pila di chiamate!) e spesso questo porta a “shortcut”
+\end{itemize}
+
+\subsection{Repository Model}
+I dati condivisi sono mantenuti in un database centrale (repository) a cui hanno accesso tutti i sotto-sistemi.
+
+\subsubsection{Vantaggi}
+\begin{itemize}
+    \item Modo efficiente di condividere grandi quantità di dati (non sono trasmessi esplicitamente tra sottosistemi)
+    \item Gestione centralizzata di backup, security, etc.
+\end{itemize}
+
+\subsubsection{Svantaggi}
+\begin{itemize}
+    \item I sottosistemi devono accordarsi su un modello dei dati per il repository, necessità di compromesso
+    \item L’evoluzione dello schema dei dati è difficile e costosa
+    \item Difficile da rendere distribuito in maniera efficiente
+\end{itemize}
+
+\subsection{Client-Server Model}
+Modello di sistema distribuito che mostra come i dati e la computazione possono essere distribuiti su server che forniscono i servizi e client che li usano.
+
+\subsubsection{Client-Server a 2 livelli}
+Diviso in:
+\begin{itemize}
+    \item Client
+    \item Server che comprende logica e Database
+\end{itemize}
+
+\subsubsection{Client-Server a 3 livelli}
+Diviso in:
+\begin{itemize}
+    \item Client
+    \item Logica Server
+    \item Database Server
+\end{itemize}
+
+\subsubsection{Vantaggi}
+\begin{itemize}
+    \item Possibile migliorare le performance di un sistema “spostando” la computazione tra client e server e viceversa
+    \item Supporta il riuso: server che forniscono un servizio possono essere riusati in diverse applicazioni
+    \item Scalabile: si aggiungono dei server
+    \item Aggiunta di nuovi server o upgrade di quelli esistenti è semplice
+\end{itemize}
+
+\subsubsection{Svantaggi}
+\begin{itemize}
+    \item Mancanza di modello dei dati condiviso tra server, lo scambio di dati può essere inefficiente
+    \item Operazioni di gestione ridondanti nei vari server
+    \item Mancanza di registro centrale di nomi e servizi, può essere difficile determinare i server e servizi disponibili
+\end{itemize}
+
+\subsection{Peer-to-Peer Model}
+Ogni componente esegue le funzioni sia di client che di server. Cosa distingue un peer da un altro sono i dati. I sistemi P2P scalano bene e sono fault-tolerant.
+
+\subsubsection{Vantaggi}
+\begin{itemize}
+    \item Aggiungere un “peer” vuol dire aggiungere nuove capabilities (in termini di nuovi dati)
+    \item I dati sono replicati su diversi peer per cui se un nodo viene sconnesso per una qualche ragione non si perde (molta) informazione
+    \item Sono fault-tolerant
+    \item Scalano bene
+\end{itemize}
+
+\break
+\subsection{Pipe and Filter Model}
+I filtri effettuano trasformazioni che elaborano i loro input per produrre output.\\
+Le pipe sono connettori che trasmettono i dati tra filtro e filtro.
+
+\subsubsection{Vantaggi}
+\begin{itemize}
+    \item Supporta il riuso delle trasformazioni
+    \item Intuitivo: permette di capire il funzionamento del sistema come composizione dei filtri
+    \item Aggiunta di nuove trasformazioni facile
+    \item Abbastanza semplice da implementare
+    \item Supporta esecuzione concorrente/parallela
+\end{itemize}
+
+\subsubsection{Svantaggi}
+\begin{itemize}
+    \item Non adatto per sistemi interattivi
+    \item Di solito porta allo sviluppo di sistemi batch dove ogni filtro compie una completa trasformazione dell’input
+    \item Lavoro extra per parsing e unparsing dei dati nei vari filtri
+\end{itemize}
+
+\subsection{Architetture Eterogenee}
+Ci sono due modi di combinare Stili architetturali:
+\begin{itemize}
+    \item Modo gerarchico
+    \item Permettendo che una componente sia un mix di architetture
+\end{itemize}

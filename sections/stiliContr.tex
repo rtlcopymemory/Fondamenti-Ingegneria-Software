@@ -1,0 +1,39 @@
+Esistono due stili di controllo implementati in modelli diversi:
+\begin{itemize}
+    \item \textbf{Controllo Centralizzato}: un sottosistema ha la responsabilità generale del controllo e “avvia e ferma” gli altri sottosistemi
+    \begin{itemize}
+        \item Call - return model
+        \item Manager Model
+    \end{itemize}
+    
+    \item \textbf{Controllo basato su eventi}: non esiste la figura di “controllore”; ogni sottosistema può rispondere ad eventi generati da altri sottosistemi
+    \begin{itemize}
+        \item Broadcast model
+    \end{itemize}
+\end{itemize}
+
+\subsection{Call - Return Model}
+Un sottosistema di controllo (Main) ha la responsabilità di gestire l’esecuzione degli altri sottosistemi.\\
+Il Main decide l’ordine di esecuzione dei sottosistemi.\\
+Modello top-down in cui il controllo parte dalla radice e si sposta verso il basso\\
+Applicabile solo a sistemi sequenziali
+
+\subsection{Manager Model}
+Usato se i sottosistemi controllati possono funzionare in parallelo.\\
+Una componente del sistema (Il Manager) controlla l’avvio, la terminazione e il coordinamento degli altri processi di sistema
+
+\subsection{Broadcast Model}
+Invece di invocare una procedura direttamente, un componente può annunciare (broadcast) uno o più eventi. Quindi tutti i componenti lo ricevono ma solo i componenti interessati lo elaborano.
+
+\noindent \textbf{Vantaggi}:
+\begin{itemize}
+    \item Semplice aggiungere/togliere/sostituire componenti
+    \item Semplice il riuso di componenti
+\end{itemize}
+
+\noindent \textbf{Svantaggi}:
+\begin{itemize}
+    \item I sottosistemi quando mandano un evento non sanno se e quando l’evento verrà gestito
+    \item Scambio dei dati può complicare le cose (o passati con l'evento o utilizzo di una repository)
+    \item Possono essere difficili da implementare e soprattutto testare
+\end{itemize}

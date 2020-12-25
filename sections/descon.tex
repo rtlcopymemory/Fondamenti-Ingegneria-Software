@@ -1,0 +1,24 @@
+Prescrive che il progettista debba definire specifiche precise delle interfacce dei classi/componenti software, basandosi sulla metafora di un contratto legale.
+
+\subsection{Elementi di un contratto}
+\begin{itemize}
+    \item \textbf{Pre-condizione}: Espressione booleana rappresentante le aspettative sullo ‘stato del mondo’ prima che venga eseguita un’operazione
+    \item \textbf{Post-condizione}: Espressione booleana riguardante lo ‘stato del mondo’ dopo l’esecuzione di un’operazione
+    \item \textbf{Invariante}: Condizione che ogni oggetto della classe deve soddisfare quando è ‘in equilibrio’. \textbf{Deve essere  valida in ogni momento in cui è possibile eseguire un’operazione}
+\end{itemize}
+
+\noindent Il fornitore garantisce che se pre e inv valgono allora, dopo l’esecuzione di op, vale post (e inv).\\
+Il fornitore chiede che valgano pre e inv (altrimenti non garantisce nulla!).
+
+\subsection{Responsabilità}
+\textbf{Prima} della chiamata di un operazione è responsabilità del Cliente.
+\textbf{Durante} l’esecuzione dell’operazione è responsabilità del Fornitore.
+
+\subsection{Vantaggi}
+\begin{itemize}
+    \item \`E una guida per lo sviluppatore durante la fase di codifica.
+    \item Migliorano la qualità del software. Definisce quale componente è responsabile ad effettuare i controlli.
+    \item Documentazione. Pre, Post e Invarianti documentano in modo preciso cosa fa una componente/classe.
+    \item Testing. Guida alla generazione di casi di test “black-box”
+    \item Debugging. Se è implementato nel codice ci permette di trovare “il colpevole” di un malfunzionamento
+\end{itemize}

@@ -1,0 +1,164 @@
+Una soluzione elegante (con un nome) di uno specifico problema di design/programmazione OO.\\
+Aiutano ad applicare i principi di buona progettazione OO.\\
+Distinguiamo i design pattern in \textbf{elementari} e \textbf{classici}:
+\begin{itemize}
+    \item \textbf{Elementari}: GRASP
+    \item \textbf{Classici}: Creazionali, Struitturali, Comportamentali
+\end{itemize}
+
+\noindent \textbf{GRASP} \`e un insieme di design pattern (e principi) con lo scopo di guidare l'assegnazione e la divisione delle responsabilità alle classi.\\
+I Design patter e principi GRASP sono: controller, creator, indirection, information expert, low coupling, high cohesion, polymorphism, protected variations, e pure fabrication.
+
+\vspace{4mm}
+\noindent I design pattern \textbf{Classici} si dividono in Creazionali, Strutturarli, Comportamentali.
+\begin{itemize}
+    \item Creazionali: Factory Method, \textbf{Abstract Factory}, Builder, Prototype, Singleton.
+    \item Strutturali: \textbf{Adapter}, Bridge, Composite, Decorator, \textbf{Facade}, Flyweight, Proxy
+    \item Comportamentali: Interpreter, \textbf{Template Method}, Chain of rensponsibility, Command, Iterator, Mediator, Memento, \textbf{Observer}, \textbf{State}, Strategy, Visitor
+
+\end{itemize}
+
+\subsection{Controller}
+\textbf{Problema da risolvere}: quale è il primo oggetto oltre lo strato di UI che riceve e coordina un operazione di sistema.
+
+\noindent Assegna la responsabilità ad una classe che rappresenta una delle seguenti scelte a seconda se stiamo implementando un:
+\begin{itemize}
+    \item \textbf{Sistema piccolo}: classe che rappresenta il sistema complessivo (o dispositivo su cui è eseguito il software)
+    \item \textbf{Sistema grande}: classe relativa al caso d’uso all’interno del quale si verifica l’evento. (LoginController)
+\end{itemize}
+
+\break
+\subsection{Abstract Factory}
+Usata quando il pattern GRASP Creator non \`e abbastanza o in generale di hanno i seguenti problemi:
+\begin{itemize}
+    \item Si vuole nascondere la logica di creazione perché potenzialmente complessa.
+    \item Quando si vuole separare la logica di creazione dalla logica applicativa pura
+    \item Perché si vogliono introdurre strategie per la gestione della memoria per migliorare le prestazioni
+\end{itemize}
+
+\noindent Usata \textbf{quando}:
+\begin{itemize}
+    \item Un sistema deve essere indipendente da come i suoi prodotti sono creati, composti e rappresentati
+    \item Un sistema deve essere configurato per una di diverse famiglie di prodotti disponibili
+    \item Un famiglia di prodotti collegati tra loro è progettata per funzionare assieme, e bisogna rispettare questo vincolo
+\end{itemize}
+
+\noindent Fornisce una soluzione per creare famiglie di prodotti (oggetti connessi o dipendenti tra loro), in modo che non ci sia necessità da parte dei client di specificare le classi concrete dei prodotti all’interno del proprio codice.\\
+Un tipo esempio di uso \`e l'implementazione di una GUI multi-piattaforma.
+
+\vspace{4mm}
+\noindent \textbf{Conseguenze}:
+\begin{itemize}
+    \item :-) Isola le classi concrete
+    \item :-) Rende il cambio della famiglia dei prodotti facile
+    \item :-) Favorisce la consistenza tra i vari prodotti di una famiglia
+    \item :-( Non è facile aggiungere nuovi prodotti
+\end{itemize}
+
+\subsection{Adapter}
+Converte l’interfaccia di una classe in un’altra interfaccia che il cliente si aspetta.
+
+\vspace{4mm}
+\noindent \textbf{Problema}:
+\begin{itemize}
+    \item usare una classe esistente, la cui interfaccia non è quella che il cliente si aspetta
+    \item si vuole creare una classe che collabora con classi non correlate, o che non si conoscono ancora
+\end{itemize}
+
+\subsection{Facade}
+\`E una classe che implementa un interfaccia più semplice rispetto alle classi necessarie per effettuare il lavoro richiesto e chiama quindi i metodi di altre classi per ottenere il risultato finale. Ad esempio un compilatore con una Facade con il metodo \texttt{Compile()}
+
+\vspace{4mm}
+\noindent \textbf{Problema}:
+\begin{itemize}
+    \item Rendere più semplice l'accesso a sottosistemi che espongono interfacce complesse.
+    \item Fornire un’unica interfaccia per un insieme di funzionalità “sparse” su più interfacce/classi.
+\end{itemize}
+
+\vspace{4mm}
+\noindent \textbf{Conseguenze}:
+\begin{itemize}
+    \item :-) Promuove un accoppiamento debole fra cliente e sottosistema
+    \item :-) Nasconde al cliente le componenti (complesse) del sottosistema
+    \item :-) Il cliente può comunque, se necessario, usare direttamente le classi del sottosistema
+\end{itemize}
+
+\subsection{Template}
+Definisce lo scheletro (template) di un algoritmo in un metodo posponendo la definizione di alcuni passi a delle sottoclassi. Ad esempio si possono implementare i sort con gli step comuni uguali e lasciare l'implementazione della funzione che definisce l'ordine (la comparazione) di due elementi a chi scrive la sotto classe, in questo modo si ha un template per qualsiasi tipo siccome basta ri-definire la funzione di compare.
+
+\vspace{4mm}
+\noindent \textbf{Problema}:
+\begin{itemize}
+    \item Implementare la parte invariante di un algoritmo una sola volta, e lasciare alle sottoclassi l’implementazione delle parti che possono variare
+\end{itemize}
+
+\vspace{4mm}
+\noindent \textbf{Conseguenze}:
+\begin{itemize}
+    \item :-) Tecnica fondamentale per il riuso del codice
+    \item :-) Realizza inversione del flusso di controllo
+    \item :-) Permette di avere anche più sottoclassi concrete
+    \item :-( Importante chiarire bene quali operazioni devono essere ridefinite nelle sottoclassi
+\end{itemize}
+
+\break
+\subsection{Observer}
+Si usano per "osservare" cambiamenti di alcuni oggetti e agire di conseguenza.\\
+Per implementare questo pattern:
+\begin{itemize}
+    \item Gli osservatori si registrano presso l’oggetto osservato
+    \item Quando l’oggetto osservato cambia stato, notifica tutti gli osservatori (tramite un metodo \texttt{notify()} e una lista interna di oggetti osservatori registrati col metodo \texttt{update()})
+    \item Quando notificato, ogni osservatore decide cosa fare
+\end{itemize}
+
+\vspace{4mm}
+\noindent \textbf{Problema}:
+\begin{itemize}
+    \item Associare più “viste” differenti ad un modello (dati)
+    \item Implementare il broadcast
+    \item Il cambiamento di un oggetto richiede il cambiamento di altri oggetti
+    \item Notificare oggetti senza fare assunzioni a priori su quali siano questi oggetti
+\end{itemize}
+
+\vspace{4mm}
+\noindent \textbf{Conseguenze}:
+\begin{itemize}
+    \item :-) Collegamento lasco tra Osservato e Osservatori
+    \item :-) Supporto per la comunicazione broadcast
+    \item :-( Modifiche inaspettate
+\end{itemize}
+
+\break
+\subsection{State Pattern}
+Permettere a un oggetto di cambiare il suo comportamento al variare del suo stato interno. L'uso permette l'implementazione di state machine.
+\begin{itemize}
+    \item Usiamo una gerarchia di classi per rappresentare gli stati della macchina
+    \item Ogni (sotto)classe equivale ad uno stato
+    \item Ogni (sotto)classe ha la sua implementazione delle operazioni
+\end{itemize}
+
+\vspace{4mm}
+\noindent \textbf{Problema}:
+\begin{itemize}
+    \item Un oggetto deve modificare dinamicamente il suo comportamento al variare del suo stato interno
+\end{itemize}
+
+\vspace{4mm}
+\noindent \textbf{Conseguenze}:
+\begin{itemize}
+    \item :-) Incapsula i comportamenti associati ad uno stato in un oggetto e la logica di transizione tra stati in uno oggetto piuttosto che in una grosso switch tra istruzioni
+    \item :-) Il comportamento associato ad uno stato dipende solo da una classe
+    \item :-) \`E semplice cambiare il comportamento di uno specifico stato e aggiungere nuovi stati
+    \item :-( Incrementa il numero delle classi
+\end{itemize}
+
+\subsection{Model View Controller}
+\`E un pattern/stile architetturale. Divide un’applicazione interattiva in tre tipologie di componenti: Modello, Vista/e, Controller/s. Usato soprattutto in Applicazioni interattive con interfaccia utente (UI) flessibile.
+
+\vspace{4mm}
+\noindent \textbf{Problema}:
+\begin{itemize}
+    \item le interfacce utente (UI) sono soggette a richieste di cambiamento frequenti
+    \item cambiamenti in una UI non devono ripercuotersi su funzionalità fondamentali (controllo dei dati), che sono in genere indipendenti dalla loro presentazione
+    \item inoltre, un’applicazione può avere più UI
+\end{itemize}

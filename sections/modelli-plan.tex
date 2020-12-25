@@ -1,0 +1,102 @@
+\subsection{Modelli Waterfall}
+\textbf{Pregi}:
+\begin{itemize}
+    \item Enfasi su aspetti come l’analisi dei requisiti e il progetto di sistema
+    \item Pospone l’implementazione dopo avere capito i bisogni del cliente
+    \item Introduce disciplina e pianificazione
+    \item \`E applicabile se i requisiti sono chiari e stabili
+\end{itemize}
+
+\noindent \textbf{Difetti}:
+\begin{itemize}
+    \item Lineare, rigido, monolitico
+    \item La consegna avviene dopo anni, intanto i requisiti cambiano o si chiariscono: così viene consegnato software obsoleto
+    \item Viene prodotta molta “carta” poco chiara
+\end{itemize}
+
+\subsubsection{Sotto-tipi}
+\begin{itemize}
+    \item Modello waterfall con feedback e iterazioni
+    \item Modello waterfall con prototipazione
+    \item V-Model
+\end{itemize}
+
+\subsubsection{V-Model}
+Associa ad ogni fase una fase di testing che in caso di fallimento porta alla ripetizione della corrispondente fase fino al superamento dei test.
+
+\subsection{Modelli Evolutivi}
+\textbf{Pregi}:
+\begin{itemize}
+    \item Il cliente può non sapere esattamente cosa vuole all'inizio dello sviluppo
+    \item I requisiti possono cambiare nel tempo
+    \item Il cliente vede delle fasi intermedie del software
+    \item Riduce l'impatto di un errore nella fase iniziale
+\end{itemize}
+
+\subsection{Modelli a prototyping}
+\textbf{Pregi}:
+\begin{itemize}
+    \item Permette di raffinare requisiti definiti in termini di obiettivi generali e troppo vaghi
+    \item Rilevazione precoce di errori di interpretazione
+\end{itemize}
+
+\noindent \textbf{Svantaggi}:
+\begin{itemize}
+    \item il prototipo è meccanismo per identificare i requisiti, spesso da “buttare”
+\end{itemize}
+
+\subsection{Modelli iterativi incrementali}
+\textbf{Pregi}:
+\begin{itemize}
+    \item Le release sono sviluppate considerando il feedback degli utenti
+    \item E’ più semplice prevedere le risorse necessarie allo sviluppo perché ogni fase è più piccola e semplice dell'intero sistema
+    \item Eventuali problemi vengono individuati presto
+    \item Risposta rapida al mercato siccome abbiamo delle release intermedie
+\end{itemize}
+
+\subsubsection{Modelli UP}
+Meta-modello iterativo e incrementale con diverse implementazioni.\\
+Formato da:
+\begin{itemize}
+    \item Diverse iterazioni ognuna divisa in:
+    \begin{itemize}
+        \item 4 fasi (Studio di fattibilità, sviluppo, design codifica e testing, deploy), dove ogni fase può essere ripetuta più volte, a loro volta formate da:
+        \begin{itemize}
+            \item 5 attività: Requisiti (R), Analisi (A), Design, (D) Codifica (C) e Testing (T)
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\subsection{Meta-modello a Spirale}
+(Precede UP) Primo modello a introdurre il concetto di \textbf{rischio}. Essendo un meta-modello va integrato con un altro modello precedentemente elencato.\\
+\noindent \textbf{Vantaggi}:
+\begin{itemize}
+    \item Adatto allo sviluppo di sistemi complessi
+    \item Primo approccio che considera il rischio
+\end{itemize}
+
+\noindent \textbf{Svantaggi}:
+\begin{itemize}
+    \item Necessita competenze di alto livello per la stima dei rischi
+    \item Richiede un’opportuna personalizzazione ed esperienza di utilizzo
+    \item Se un rischio rilevante non viene scoperto o tenuto a bada 'siamo da capo …'
+\end{itemize}
+
+\break
+\subsection{Model Driven Development (MDD)}
+\textbf{Pregi}:
+\begin{itemize}
+    \item Riduce la quantità di software da scrivere
+    \item Consegne più veloci
+    \item Riduce i costi totali di sviluppo e i rischi
+\end{itemize}
+
+\noindent \textbf{Svantaggi}:
+\begin{itemize}
+    \item Sono necessari dei compromessi siccome i requisiti potrebbero non essere soddisfatti dalle componenti (convincere il cliente)
+    \item Integrazione non sempre facile
+    \item Spesso i componenti usati sono fatti evolvere dalla ditta produttrice senza controllo di chi li usa
+\end{itemize}
+
+\subsection{Modello Trasformazionale}
+Lo sviluppo del Software viene visto come una sequenza di passi che trasformano formalmente una specifica in una implementazione.
