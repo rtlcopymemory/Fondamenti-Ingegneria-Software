@@ -13,9 +13,18 @@ Due fasi:
 Essitono due categorie
 \begin{enumerate}
     \item White Box (o structural testing): basato su una conoscenze esplicita del SUT e della sua struttura
+    \begin{itemize}
+        \item Lo scopo è quello di produrre abbastanza input per assicurare che ogni statement è eseguito almeno una volta
+    \end{itemize}
+    
     \item Black box (o functional testing): NON basato su una conoscenze esplicita del SUT e della sua struttura
+    \begin{itemize}
+        \item Di solito gli input sono generati a partire dai requisiti/specifiche
+        \item Con tester esperti il testing funzionale rivela più fault del testing strutturale
+    \end{itemize}
 \end{enumerate}
 
+\break
 \noindent Eseguiti in vari fasi con nomi e scopi diversi:
 \begin{itemize}
     \item Testing di unità (implementazione): Testano le singole unità
@@ -23,3 +32,61 @@ Essitono due categorie
     \item Testing di sistema (integrazione di sistema): Testano che il software soddisfi i requisiti e i bisogni dell'utente
     \item Testing di regressione (manutenzione): verificano che non ci siano stati side effect dopo il cambiamento di una parte di codice (ad esempio bug fix)
 \end{itemize}
+
+\subsection{White Box Testing}
+\subsubsection{Coverage}
+Una Test Suite viene misurata unità di copertura, che possono assere ad esempio le \textbf{linee di codice eseguite} da quella test suite.\\
+In particolare Coverage può essere basata su:
+\begin{itemize}
+    \item Codice Sorgente
+    \begin{itemize}
+        \item LOC: Lines of code
+    \end{itemize}
+    
+    \item Modelli
+    \begin{itemize}
+        \item Grafo di flusso di controllo (control flow graph, CFG)
+        \item State machines
+        \item Data Flow Graphs
+        \item ...
+    \end{itemize}
+    
+    \item Requisiti e Specifiche (black box testing)
+\end{itemize}
+
+\subsubsection{Control Flow Graph}
+Rappresenta mediante un grafo tutti i possibili cammini che possono essere attraversati durante l’esecuzione di P\\
+Criteri di copertura (dal meno al più "forte"):
+\begin{itemize}
+    \item Statement (node) coverage 
+    \item Branch coverage
+    \item Multiple Condition Coverage (MCC)
+    \item All Paths coverage
+\end{itemize}
+
+\subsubsection{Limitazioni}
+Spesso il numero di casi di test prodotti è molto grande quindi \`e poco usabile in pratica.\\
+Usato di solito solo per tests di piccole parti.\\
+Non è in grado di rivelare i fallimenti dovuti a “missing feature errors”.
+
+\subsection{Black Box Testing}
+Il black box testing può essere usato:
+\begin{itemize}
+    \item Con qualsiasi tipo di sistema indipendentemente dalla tecnologia / piattaforma / linguaggio usato.
+    \item Può essere usato per Unit e System testing
+    \item Gli sviluppatori possono scrivere casi di test non appena i requisiti del sistema sono disponibili
+\end{itemize}
+
+\subsubsection{Tecnica di Equivalence Partitioning}
+Si partiziona l'input in classi assumendo che la SUT debba avere lo stesso comportamento per ogni elemento nella classe (classi di equivalenza).\\
+Si sceglie poi un input a caso da ogni classe.
+
+\subsubsection{Tecnica di Boundary value analysis}
+Invece di scegliere input casuali nelle classi di equivalenza come sopra si scelgono i casi limiti.
+
+\subsubsection{Approccio Three Steps}
+\begin{enumerate}
+    \item Per ogni use case, generare un’insieme completo di scenari
+    \item Per ogni scenario, trovare le condizioni che permettono di eseguirlo (quasi-test case)
+    \item Per ogni quasi-test case, identificare I valori di input e creare uno o più casi di test
+\end{enumerate}
